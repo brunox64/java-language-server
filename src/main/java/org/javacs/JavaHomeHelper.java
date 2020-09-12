@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -80,8 +79,6 @@ class JavaHomeHelper {
             List<Path> list;
             try {
                 list = Files.list(Paths.get(root)).collect(Collectors.toList());
-            } catch (NoSuchFileException e) {
-                continue;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
